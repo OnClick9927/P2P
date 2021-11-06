@@ -1,0 +1,7 @@
+E:\Project\VS\P2P\P2P\P2P\obj\Debug\P2P.csproj.AssemblyReference.cache
+E:\Project\VS\P2P\P2P\P2P\obj\Debug\P2P.csproj.CoreCompileInputs.cache
+E:\Project\VS\P2P\P2P\P2P\bin\Debug\P2P.exe.config
+E:\Project\VS\P2P\P2P\P2P\bin\Debug\P2P.exe
+E:\Project\VS\P2P\P2P\P2P\bin\Debug\P2P.pdb
+E:\Project\VS\P2P\P2P\P2P\obj\Debug\P2P.exe
+E:\Project\VS\P2P\P2P\P2P\obj\Debug\P2P.pdb

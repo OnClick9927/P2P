@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{270A7D15-8480-4DF7-AD57-3D8C02A7FCEC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>P2P</RootNamespace>
+    <AssemblyName>P2P</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tool\Const.cs" />
+    <Compile Include="Net\P2PClient.cs" />
+    <Compile Include="Net\IP2PMessageHandler.cs" />
+    <Compile Include="Message\interface\C2SMessage.cs" />
+    <Compile Include="Message\HolePunchingRequest.cs" />
+    <Compile Include="Message\interface\IMessage.cs" />
+    <Compile Include="Message\interface\IP2PMessage.cs" />
+    <Compile Include="Message\interface\IS2CMessage.cs" />
+    <Compile Include="Packet\LockWait.cs" />
+    <Compile Include="Message\LoginRequest.cs" />
+    <Compile Include="Message\LogoutRequest.cs" />
+    <Compile Include="Net\ObjectSerializer.cs" />
+    <Compile Include="Message\P2PHolePunchingSucess.cs" />
+    <Compile Include="Message\P2PHolePunchingTest.cs" />
+    <Compile Include="Net\P2PMessageHandler.cs" />
+    <Compile Include="Net\PacketType.cs" />
+    <Compile Include="Packet\CycQueue.cs" />
+    <Compile Include="Packet\Extension\ByteExtension.cs" />
+    <Compile Include="Packet\Packet.cs" />
+    <Compile Include="Packet\PacketHeader.cs" />
+    <Compile Include="Packet\PacketQueue.cs" />
+    <Compile Include="Packet\PacketReader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Message\S2C_HolePunchingCommand.cs" />
+    <Compile Include="Net\P2PSever.cs" />
+    <Compile Include="Tool\SystemInfo.cs" />
+    <Compile Include="Message\UserCollectionResponse.cs" />
+    <Compile Include="Net\UDPEntity.cs" />
+    <Compile Include="Message\User.cs" />
+    <Compile Include="Message\UserCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
