@@ -45,13 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Message\interface\UIDMessage.cs" />
     <Compile Include="Tool\Const.cs" />
     <Compile Include="Net\P2PClient.cs" />
     <Compile Include="Net\IP2PMessageHandler.cs" />
     <Compile Include="Message\interface\C2SMessage.cs" />
     <Compile Include="Message\HolePunchingRequest.cs" />
     <Compile Include="Message\interface\IMessage.cs" />
-    <Compile Include="Message\interface\IP2PMessage.cs" />
+    <Compile Include="Message\interface\P2PMessage.cs" />
     <Compile Include="Message\interface\IS2CMessage.cs" />
     <Compile Include="Packet\LockWait.cs" />
     <Compile Include="Message\LoginRequest.cs" />

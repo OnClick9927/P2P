@@ -6,10 +6,10 @@ namespace P2P.Net
 {
     public class P2PSever : P2PMessageHandler
     {
-        protected override UDPEntity CreateUdp()
+        public P2PSever(int port,int bufferSize) : base(bufferSize, port)
         {
-            return new UDPEntity(this, Const.severPort);
         }
+
 
         protected override void OnP2PMessage(IPEndPoint point, IMessage message)
         {
@@ -33,11 +33,11 @@ namespace P2P.Net
         {
             User userA = users.Find(message.id);
             User userB = users.Find(message.targetid);
-            S2C_HolePunchingCommand msgHolePunching = new S2C_HolePunchingCommand() { 
+            HolePunchingCommand msgHolePunching = new HolePunchingCommand() { 
             
                 point= point
             };
-            this.SendMessage(userB.point,msgHolePunching); //Server->B
+            this.SendMessage(userB.point,msgHolePunching); 
         }
         private void OnLogout(LogoutRequest message)
         {

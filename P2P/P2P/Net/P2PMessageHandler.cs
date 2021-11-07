@@ -9,13 +9,20 @@ namespace P2P.Net
     {
         private class PacketReaders
         {
-            private Dictionary<IPEndPoint, PacketReader> readers = new Dictionary<IPEndPoint, PacketReader>();
+            private int bufferSize;
+            private Dictionary<IPEndPoint, PacketReader> readers;
+            public PacketReaders(int bufferSize)
+            {
+                this.bufferSize = bufferSize;
+                readers = new Dictionary<IPEndPoint, PacketReader>();
+            }
+
             public List<Packet> ReadBuffer(IPEndPoint point, byte[] buffer)
             {
                 PacketReader reader;
                 if (!readers.TryGetValue(point, out reader))
                 {
-                    reader = new PacketReader(Const.bufferSize);
+                    reader = new PacketReader(bufferSize);
                     readers.Add(point, reader);
                 }
                 reader.Set(buffer, 0, buffer.Length);
@@ -31,11 +38,18 @@ namespace P2P.Net
         UDPEntity IP2PMessageHandler.udp { get; set; }
         public UserCollection users { get; private set; }
         private PacketReaders readers;
-        protected abstract UDPEntity CreateUdp();
+        private int bufferSize;
+        private int port;
+
+        protected P2PMessageHandler(int bufferSize,int port)
+        {
+            this.bufferSize = bufferSize;
+            this.port = port;
+        }
         public virtual void Start()
         {
-            (this as IP2PMessageHandler).udp = CreateUdp();
-            readers = new PacketReaders();
+            (this as IP2PMessageHandler).udp = new UDPEntity(this,port);
+            readers = new PacketReaders(bufferSize);
             users = new UserCollection();
             (this as IP2PMessageHandler).udp.Start();
         }
